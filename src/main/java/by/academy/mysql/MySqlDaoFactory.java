@@ -16,7 +16,6 @@ import by.academy.DaoFactory;
 import by.academy.GenericDao;
 import by.academy.entities.*;
 
-
 public class MySqlDaoFactory implements DaoFactory<Connection>{
 	
 	private String user = "user";

@@ -12,10 +12,6 @@ import java.util.List;
 import by.academy.AbstarctDao;
 import by.academy.entities.Roles;
 
-/**
- * @author Veronika
- *
- */
 public class MySqlRolesDao extends AbstarctDao<Roles, Integer> {
 
 	public MySqlRolesDao(Connection connection) {

@@ -11,7 +11,7 @@ CREATE TABLE `car_market`.`users` (
 
 CREATE TABLE `car_market`.`roles` (
   `id_role` INT NULL AUTO_INCREMENT,
-  `role` ENUM('admin', 'user') NOT NULL,
+  `role` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id_role`),
   INDEX `role_INDEX` (`role` ASC));
 

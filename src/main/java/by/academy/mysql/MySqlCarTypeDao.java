@@ -12,10 +12,6 @@ import java.util.List;
 import by.academy.AbstarctDao;
 import by.academy.entities.CarType;
 
-/**
- * @author Veronika
- *
- */
 public class MySqlCarTypeDao extends AbstarctDao<CarType, Integer> {
 
 	public MySqlCarTypeDao(Connection connection) {

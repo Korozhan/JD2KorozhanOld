@@ -12,10 +12,6 @@ import java.util.List;
 import by.academy.AbstarctDao;
 import by.academy.entities.Lot;
 
-/**
- * @author Veronika
- *
- */
 public class MySqlLotDao extends AbstarctDao<Lot, Integer> {
 
 	public MySqlLotDao(Connection connection) {

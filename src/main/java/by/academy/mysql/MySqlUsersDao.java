@@ -12,10 +12,6 @@ import java.util.List;
 import by.academy.AbstarctDao;
 import by.academy.entities.Users;
 
-/**
- * @author Veronika
- *
- */
 public class MySqlUsersDao extends AbstarctDao<Users, Integer> {
 	
 	private class PersistUsers extends Users {
