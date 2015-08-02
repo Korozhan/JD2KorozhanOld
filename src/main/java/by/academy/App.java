@@ -9,7 +9,7 @@ public class App
 {
     public static void main( String[] args )
     {
-    	Connection connection = null;
+    	/*Connection connection = null;
         //URL к базе состоит из протокола:подпротокола://[хоста]:[порта_СУБД]/[БД] и других_сведений
         String url = "jdbc:postgresql://127.0.0.1:5432/test";
         //Имя пользователя БД
@@ -57,6 +57,6 @@ public class App
                     Logger.getLogger(JDBCtest.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }
+        }*/
     }
 }

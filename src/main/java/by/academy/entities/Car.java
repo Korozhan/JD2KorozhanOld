@@ -3,11 +3,13 @@
  */
 package by.academy.entities;
 
+import by.academy.Identified;
+
 /**
  * @author Veronika
  *
  */
-public class Car {
+public class Car implements Identified<Integer>{
 
 	private Integer id_car = null;
     private Integer id_type;

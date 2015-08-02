@@ -3,11 +3,13 @@
  */
 package by.academy.entities;
 
+import by.academy.Identified;
+
 /**
  * @author Veronika
  *
  */
-public class Roles {
+public class Roles implements Identified<Integer>{
 	private Integer id_role = null;
     private String role;
 

@@ -3,11 +3,13 @@
  */
 package by.academy.entities;
 
+import by.academy.Identified;
+
 /**
  * @author Veronika
  *
  */
-public class Details {
+public class Details implements Identified<Integer>{
 	
 	private Integer id_details = null;
     private String mark;

@@ -3,11 +3,13 @@
  */
 package by.academy.entities;
 
+import by.academy.Identified;
+
 /**
  * @author Veronika
  *
  */
-public class Users {
+public class Users implements Identified<Integer>{
 	
 	private Integer id_user = null;
     private String login;
@@ -27,7 +29,7 @@ public class Users {
         this.login = login;
     }
 
-    public String getPasswordt() {
+    public String getPassword() {
         return password;
     }
 

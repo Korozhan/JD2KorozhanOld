@@ -3,11 +3,13 @@
  */
 package by.academy.entities;
 
+import by.academy.Identified;
+
 /**
  * @author Veronika
  *
  */
-public class Lot {
+public class Lot implements Identified<Integer>{
 	
 	private Integer id_user;
     private Integer id_role;
@@ -43,4 +45,10 @@ public class Lot {
 
     public void setBillId(Integer id_bill) { 
     	this.id_bill = id_bill;  }
+
+	@Override
+	public Integer getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
