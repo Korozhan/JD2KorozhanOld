@@ -8,12 +8,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import by.academy.AbstarctDao;
 import by.academy.entities.Users;
 
 public class MySqlUsersDao extends AbstarctDao<Users, Integer> {
 	
+	final static Logger LOG = Logger.getLogger(MySqlUsersDao.class.getName());
+
 	private class PersistUsers extends Users {
         public void setId(int id) {
             super.setId(id);
@@ -62,8 +66,8 @@ public class MySqlUsersDao extends AbstarctDao<Users, Integer> {
 	                users.setPassword(rs.getString("password"));
 	                result.add(users);
 	            }
-	        } catch (Exception e) {
-	            throw new Exception(e);
+	        } catch (Exception ex) {
+	        	LOG.log(Level.SEVERE, null, ex);
 	        }
 	        return result;
 	    }
@@ -73,8 +77,8 @@ public class MySqlUsersDao extends AbstarctDao<Users, Integer> {
 	        try {
 	            statement.setString(1, object.getLogin());
 	            statement.setString(2, object.getPassword());
-	        } catch (Exception e) {
-	            throw new Exception(e);
+	        } catch (Exception ex) {
+	        	LOG.log(Level.SEVERE, null, ex);
 	        }
 	    }
 
@@ -84,8 +88,8 @@ public class MySqlUsersDao extends AbstarctDao<Users, Integer> {
 	            statement.setString(1, object.getLogin());
 	            statement.setString(2, object.getPassword());
 	            statement.setInt(3, object.getId());
-	        } catch (Exception e) {
-	            throw new Exception(e);
+	        } catch (Exception ex) {
+	        	LOG.log(Level.SEVERE, null, ex);
 	        }
 	    }
 }

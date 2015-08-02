@@ -9,11 +9,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import by.academy.AbstarctDao;
 import by.academy.entities.Bill;
 
 public class MySqlBillDao extends AbstarctDao<Bill, Integer> {
+
+	final static Logger LOG = Logger.getLogger(MySqlBillDao.class.getName());
 
 	public MySqlBillDao(Connection connection) {
 		super(connection);
@@ -64,8 +68,8 @@ public class MySqlBillDao extends AbstarctDao<Bill, Integer> {
                 bill.setDate(rs.getDate("date"));
                 result.add(bill);
             }
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }
         return result;
 	}
@@ -78,8 +82,8 @@ public class MySqlBillDao extends AbstarctDao<Bill, Integer> {
             statement.setInt(1, object.getPrice());
             statement.setDate(2, sqlDate);
             statement.setInt(3, object.getId());
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }
 	}
 
@@ -97,11 +101,9 @@ public class MySqlBillDao extends AbstarctDao<Bill, Integer> {
             Date sqlDate = convert(object.getDate());
             statement.setInt(1, object.getPrice());
             statement.setDate(2, sqlDate);
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }		
 	}
-
-	
 
 }

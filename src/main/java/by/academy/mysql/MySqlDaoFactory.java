@@ -18,6 +18,8 @@ import by.academy.entities.*;
 
 public class MySqlDaoFactory implements DaoFactory<Connection>{
 	
+	final static Logger LOG = Logger.getLogger(MySqlDaoFactory.class.getName());
+
 	private String user = "user";
     private String password = "1234";
     private String url = "jdbc:mysql://localhost:3306/car_market";
@@ -29,7 +31,7 @@ public class MySqlDaoFactory implements DaoFactory<Connection>{
         try {
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException ex) {
-            Logger.getLogger(AbstarctDao.class.getName()).log(Level.SEVERE, null, ex);
+        	LOG.log(Level.SEVERE, null, ex);
         }
         return  connection;
     }
@@ -41,7 +43,7 @@ public class MySqlDaoFactory implements DaoFactory<Connection>{
             try {
                 throw new Exception("Dao object for " + dtoClass + " not found.");
             } catch (Exception ex) {
-                Logger.getLogger(AbstarctDao.class.getName()).log(Level.SEVERE, null, ex);
+            	LOG.log(Level.SEVERE, null, ex);
             }
         }
         return creator.create(connection);
@@ -52,7 +54,7 @@ public class MySqlDaoFactory implements DaoFactory<Connection>{
             Class.forName(driver);
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
-            Logger.getLogger(AbstarctDao.class.getName()).log(Level.SEVERE, null, ex);
+        	LOG.log(Level.SEVERE, null, ex);
         }
 
         creators = new HashMap<Class, DaoCreator>();

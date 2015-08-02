@@ -8,11 +8,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import by.academy.AbstarctDao;
 import by.academy.entities.Roles;
 
 public class MySqlRolesDao extends AbstarctDao<Roles, Integer> {
+
+	final static Logger LOG = Logger.getLogger(MySqlRolesDao.class.getName());
 
 	public MySqlRolesDao(Connection connection) {
 		super(connection);
@@ -62,8 +66,8 @@ public class MySqlRolesDao extends AbstarctDao<Roles, Integer> {
                 roles.setRole(rs.getString("role"));
                 result.add(roles);
             }
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }
         return result;
 	}
@@ -74,8 +78,8 @@ public class MySqlRolesDao extends AbstarctDao<Roles, Integer> {
 		try {
             statement.setString(1, object.getRole());
             statement.setInt(2, object.getId());
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }
 	}
 
@@ -84,8 +88,8 @@ public class MySqlRolesDao extends AbstarctDao<Roles, Integer> {
 			Roles object) throws Exception {
 		try {
             statement.setString(1, object.getRole());
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }		
 	}
 	

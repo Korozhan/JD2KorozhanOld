@@ -5,12 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import by.academy.AbstarctDao;
 import by.academy.entities.Details;
 
 public class MySqlDetailsDao extends AbstarctDao<Details, Integer> {
 	
+	final static Logger LOG = Logger.getLogger(MySqlDetailsDao.class.getName());
+
 	private class PersistDetails extends Details {
         public void setId(int id) {
             super.setId(id);
@@ -63,8 +67,8 @@ public class MySqlDetailsDao extends AbstarctDao<Details, Integer> {
 	                details.setFuel(rs.getString("fuel"));
 	                result.add(details);
 	            }
-	        } catch (Exception e) {
-	            throw new Exception(e);
+	        } catch (Exception ex) {
+	        	LOG.log(Level.SEVERE, null, ex);
 	        }
 	        return result;
 	    }
@@ -78,8 +82,8 @@ public class MySqlDetailsDao extends AbstarctDao<Details, Integer> {
 	            statement.setString(4, object.getGearbox());
 	            statement.setInt(5, object.getMileage());
 	            statement.setString(6, object.getFuel());
-	        } catch (Exception e) {
-	            throw new Exception(e);
+	        } catch (Exception ex) {
+	        	LOG.log(Level.SEVERE, null, ex);
 	        }
 	    }
 
@@ -93,8 +97,8 @@ public class MySqlDetailsDao extends AbstarctDao<Details, Integer> {
 	            statement.setInt(5, object.getMileage());
 	            statement.setString(6, object.getFuel());
 	            statement.setInt(7, object.getId());
-	        } catch (Exception e) {
-	            throw new Exception(e);
+	        } catch (Exception ex) {
+	        	LOG.log(Level.SEVERE, null, ex);
 	        }
 	    }
 }

@@ -8,11 +8,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import by.academy.AbstarctDao;
 import by.academy.entities.Lot;
 
 public class MySqlLotDao extends AbstarctDao<Lot, Integer> {
+
+	final static Logger LOG = Logger.getLogger(MySqlLotDao.class.getName());
 
 	public MySqlLotDao(Connection connection) {
 		super(connection);
@@ -64,8 +68,8 @@ public class MySqlLotDao extends AbstarctDao<Lot, Integer> {
                 lot.setBillId(rs.getInt("id_bill"));
                 result.add(lot);
             }
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }
         return result;
 	}
@@ -78,8 +82,8 @@ public class MySqlLotDao extends AbstarctDao<Lot, Integer> {
             statement.setInt(2, object.getRoleId());
             statement.setInt(3, object.getCarId());
             statement.setInt(4, object.getBillId());
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }
 	}
 
@@ -97,8 +101,8 @@ public class MySqlLotDao extends AbstarctDao<Lot, Integer> {
             statement.setInt(3, carId);
             statement.setInt(4, billId);
             
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }		
 	}
 	

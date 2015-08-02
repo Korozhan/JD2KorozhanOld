@@ -8,11 +8,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import by.academy.AbstarctDao;
 import by.academy.entities.Car;
 
 public class MySqlCarDao extends AbstarctDao<Car, Integer> {
+
+	final static Logger LOG = Logger.getLogger(MySqlCarDao.class.getName());
 
 	public MySqlCarDao(Connection connection) {
 		super(connection);
@@ -63,8 +67,8 @@ public class MySqlCarDao extends AbstarctDao<Car, Integer> {
                 car.setDetailsId(rs.getInt("id_details"));
                 result.add(car);
             }
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }
         return result;
 	}
@@ -75,8 +79,8 @@ public class MySqlCarDao extends AbstarctDao<Car, Integer> {
 		try {
             statement.setInt(1, object.getTypeId());
             statement.setInt(2, object.getDetailsId());
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }
 	}
 
@@ -91,8 +95,8 @@ public class MySqlCarDao extends AbstarctDao<Car, Integer> {
             statement.setInt(1, typeId);
             statement.setInt(2, detailsId);
             
-        } catch (Exception e) {
-            throw new Exception(e);
+        } catch (Exception ex) {
+        	LOG.log(Level.SEVERE, null, ex);
         }		
 	}
 	
